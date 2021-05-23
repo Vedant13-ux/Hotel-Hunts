@@ -1,0 +1,71 @@
+<%-include("../partials/header")%>
+    <link rel="stylesheet" type="text/css" href="/blog/editBlog.css">
+
+    </head>
+
+    <body>
+
+
+        <%-include("../partials/navBlog")%>
+
+            <div class="ui container main text segment mb-3" id="mainseg" style="display: none">
+                <div class="ui huge header center aligned text-dark ">
+                    Edit:
+                    <%=blog.title%>
+                </div>
+                <form action="/blogs/<%=blog._id%>?_method=PUT" method="Post" class="ui form mb-3 ">
+                    <div class="field">
+                        <label class="mt-2">Title</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[title]" value="<%=blog.title%>">
+                            <i class="pen square icon p-0" required></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Hotel Name</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[hotelName]" required value="<%=blog.hotelName%>">
+                            <i class="pen square icon p-0"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Location of Campground</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[location]" required value="<%=blog.location%>">
+                            <i class="pen square icon p-0"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Image</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[image]" required="Please Attach an image along with the blog" value="<%=blog.image%>">
+                            <i class="file image icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label style="color:white">Blog Content</label>
+                        <textarea rows="10" name="blog[body]" id="body"><%-blog.body%></textarea>
+                    </div>
+
+
+
+                    <button type="submit" class="ui blue submit button large my-2">Update Blog</button>
+                </form>
+            </div>
+
+
+
+
+            <%-include("../partials/footer")%>
+                <script>
+                    $(document).ready(function() {
+                        $("#mainseg").transition('fade down', 500);
+                    });
+                </script>
+                <script src="/blog/ckeditor/ckeditor/ckeditor.js"></script>
+                <script>
+                    CKEDITOR.replace('blog[body]');
+                </script>
+    </body>
+
+    </html>

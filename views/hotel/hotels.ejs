@@ -1,0 +1,103 @@
+<%-include("../partials/headerCamp")%>
+    <link rel="stylesheet" href="/hotel/hotels.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/card.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/input.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/header.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css">
+    <link rel="stylesheet" href="/image.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.css">
+    </head>
+
+    <body>
+        <%-include("../partials/nav")%>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 order-lg-2 order-1">
+                        <header class="jumbotron">
+                            <h1 class=" display-sm-3 display-lg-2 display-4">Hotel Hunts</h1>
+                            <p class="lead">Your to-go place when you long for the #WanderLust</p>
+
+                            <%if(currentUser){ %> 
+                                <%if(currentUser.role=='admin'){ %>
+                                <a href="/hotels/new" class="btn btn-primary ml-1 camp">Add New Hotel (Admin Role)</a>
+
+                                <%} %>  
+                            <%} %> 
+                            <a href="/blogs" class="btn btn-info ml-1 camp">View Blogs</a>
+                        </header>
+                    </div>
+
+                    <div class="col-lg-3 order-lg-1 order-1">
+                        <div class="jumbotron text-center">
+                            <div class="ui icon header" style="font-size:19px;line-height: 26px;">
+                                <i class="search icon"></i><span class="findby"> Find By Name or Location</span>
+                            </div>
+                            <form action="/hotels" method="GET" class="ui form mt-1">
+                                <div class="field mt-2">
+                                    <div class="ui search">
+                                        <div class="ui icon input">
+                                            <input id='search' type="text" class="prompt" placeholder="Search Hotes..." name="search" style="border-radius: 30px;">
+                                            <i class="search icon"></i>
+                                        </div>
+                                        <div class="results"></div>
+                                    </div>
+                                </div>
+                                <%if(noMatch){%>
+                                    <span class="lead"><%=noMatch%></span>
+                                    <%} %>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" id="mainpage">
+
+                    <%hotels.forEach(function(hotel){%>
+                        <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6">
+                            <div class="ui fluid raised link card mx-auto mb-3" style="background:none;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0, 0, 26,0.5)">
+
+                                <img class="campimg" src="<%=hotel.image%>"  >
+                                <div class="card-body border-top-0">
+                                    <h5 class="card-title">
+                                        <%=hotel.name%>
+                                    </h5>
+                                    <p class="card-text" style="font-weight:400;text-shadow:2px 1 px rgba(115,115,115,0.3)">
+                                        <%-hotel.description.substring(0,90)%>..<a class="readmore" href="hotels/<%=hotel._id%>">Read More</a>
+                                    </p>
+                                    <p class="card-text">
+                                        <small><i class="fas fa-map-marker-alt mr-1"></i><%=hotel.location%></small>
+                                    </p>
+                                    <div class="footer" style="display: flex; align-items: center; justify-content: space-between;">
+
+                                        <a href="/hotels/<%=hotel._id%>" class="btn btn-info btn-sm font-weight-normal"><i class="fas fa-info-circle mr-1"></i>More Info</a href=/cmapgr>
+                                        <%if(hotel.rating){ %> 
+                                            
+                                            <div>
+                                                <div class="ui small star rating" data-rating="<%=Math.floor(hotel.rating)%>" data-max-rating="5"></div><%=hotel.rating%>
+                                            </div>
+                                        <%}else{ %>
+                                            <div style="float:right">No Ratings</div>
+                                        <%} %>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <%});%>
+
+                </div>
+            </div>
+
+
+
+
+
+            <%-include("../partials/footer")%>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.js"></script>    
+            <script>
+                $('.ui.rating').rating('disable');
+            </script>
+    </body>
+
+    </html>

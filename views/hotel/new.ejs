@@ -1,0 +1,195 @@
+<%- include("../partials/header")%>
+    <link rel="stylesheet" href="/hotel/new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css">
+    
+    </head>
+
+    <body>
+        <%- include("../partials/nav")%>
+
+            <div class="container">
+                <div class="row">
+                    <div style="width:85%;overflow-y:auto" class="mt-3 mt-md-5  mx-auto p-0">
+                        <form action="/hotels" method="POST" class="p-0" style="display:none; overflow-x: hidden;" enctype="multipart/form-data" id="form">
+                            <h1 style="font-weight:400;color:white">
+                                Enter Hotel Details
+                            </h1>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-campground"></i><span>
+							    </div>
+							    <input type="text" placeholder="Enter Hotel Name" class="form-control form-group" name="hotel[name]" required>
+						    </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
+                                </div>
+                                <input type="text" placeholder="Enter Location" class="form-control" name="hotel[location]" required>
+                            </div>
+
+                            
+						
+                        
+                            
+
+                            <textarea class="form-control form-group" name="hotel[description]" placeholder="Describe the Hotel....." rows="5" maxlength="600" minlength="400" required></textarea>
+
+                            <div class="mb-3">
+                                <select name="hotel[amenities]" multiple="" class="ui fluid dropdown" id="amenties_dropdown" required>
+                                    <option value="">Amenities</option>
+                                    <option value="AC">AC</option>
+                                    <option value="TV">TV</option>
+                                    <option value="FreeWifi">Free Wifi</option>
+                                    <option value="PowerBackup">PowerBackup</option>
+                                    <option value="Geyser">Geyser</option>
+                                    <option value="Elevator">Elevator</option>
+                                    <option value="ParkingFacility">Parking Facility</option>
+                                    <option value="Restaurant">Restaurant</option>
+                                    <option value="SwimmingPool">Swimming Pool</option>
+                                    <option value="Spa">Spa</option>
+                                    <option value="Jacuzzi">Jacuzzi</option>
+                                    <option value="Sauna">Sauna</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label style="color: white;"><b>Single-Bed Rooms (With Bathroom)</b></label>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-shower"></i></span>
+                                        </div>
+                                        <input type="text" placeholder="Enter Number of such rooms available" class="form-control" name="one" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
+                                        </div>
+                                            <input type="text" placeholder="Enter Price of Single-Bed With Bathroom" class="form-control" name="two" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label style="color: white;"><b>Single-Bed Rooms (Without Bathroom)</b></label>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-shower"></i></span>
+                                        </div>
+                                        <input type="text" placeholder="Enter Number of such rooms available" class="form-control" name="three" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
+                                        </div>
+                                            <input type="text" placeholder="Enter Price of Single-Bed Without Bathroom" class="form-control" name="four" required>
+                                    </div>
+                                </div>
+                                <!-- Double-Bed -->
+                                <div class="col-12">
+                                    <label style="color: white;"><b>Double-Bed Rooms (With Bathroom)</b></label>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-shower"></i></span>
+                                        </div>
+                                        <input type="text" placeholder="Enter Number of such rooms available" class="form-control" name="five" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
+                                        </div>
+                                            <input type="text" placeholder="Enter Price of Double-Bed With Bathroom" class="form-control" name="six" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label style="color: white;"><b>Double-Bed Rooms (Without Bathroom)</b></label>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-shower"></i></span>
+                                        </div>
+                                        <input type="text" placeholder="Enter Number of such rooms available" class="form-control" name="seven" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
+                                        </div>
+                                            <input type="text" placeholder="Enter Price of Double-Bed Without Bathroom" class="form-control" name="eight" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="image" style="box-shadow:none !important;border:none !important" accept=".gif, .jpg, .png, .PNG | image/*">
+                                    <label class="custom-file-label" for="loacl">Choose Hotel Image</label>
+                                </div>
+                            </div>
+                          
+
+                            <div class="mt-2">
+                                <input type="checkbox" id="ckeck" required>
+                                <label class="form-ckeck-label text-light " for="check"> I confirm that the 
+								above details are 
+								true</label>
+                            </div>
+
+
+
+                            <div class="mt-1">
+                                <button class="btn btn-info" type="submit">Upload</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <%- include("../partials/footer")%>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js"></script>
+
+                <script>
+                    const form=document.forms.form;
+                    $('.ui.dropdown')
+                        .dropdown()
+                    ;
+
+                    $(document).ready(function() {
+                        $("form").transition('fade down', 800);
+                    });
+
+ 
+                    $("#form").submit( function(eventObj) {
+                        var selectedValues;
+                        selectedValues=$('#amenties_dropdown')
+                            .dropdown('get value');
+                        
+                        $("<input />").attr("type", "hidden")
+                            .attr("name", "hotel[amenties]")
+                            .attr("value", selectedValues)
+                            .appendTo("#form");
+                    });
+                </script>
+
+    </body>
+
+    </html>

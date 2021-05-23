@@ -1,0 +1,132 @@
+.container {
+    max-width: 1290px;
+    margin: 0 auto;
+}
+
+body {
+    /* background-image: url("https://images.unsplash.com/photo-1507084479072-f6ebe14beb68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1782&q=80") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important; */
+    font-family: 'Roboto', sans-serif;
+    background-attachment: fixed;
+}
+
+.jumbotron {
+    line-height: 1.5;
+    background: rgb(230, 230, 230, 0.45);
+    padding: 20px;
+    margin-top: 0px;
+}
+
+@media screen and (max-width: 768) {
+    .jumbotron {
+        background: rgb(230, 230, 230, 0.05);
+    }
+}
+
+.card {
+    outline: none;
+    border: none;
+    padding-bottom: none;
+}
+
+.card-body {
+    padding: 0.75rem;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.btn-sm {
+    font-weight: 550;
+    padding: .15rem .5rem;
+    font-size: 1.2rem;
+}
+
+.campimg {
+    min-height: 180px;
+    max-height: 180px;
+    height: 98%;
+}
+
+.readmore {
+    color: rgb(88, 182, 245);
+    opacity: 1;
+}
+
+.readmore:hover {
+    color: rgb(18, 148, 235);
+    text-decoration: none;
+    opacity: 1;
+}
+
+form {
+    display: inline;
+}
+
+.findby {
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1260px) {
+    .findby {
+        font-size: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .findby {
+        font-size: 0.8rem !important;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .findby {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .camp,
+    .blog {
+        font-size: 0.8rem !important;
+    }
+}
+
+@media screen and (max-width: 388px) {
+    .camp,
+    .blog {
+        font-size: 0.8rem !important;
+        padding: 3px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .campimg {
+        min-height: 200px;
+        max-height: 220px;
+        height: 98%;
+    }
+    
+}
+
+.navbar {
+    padding: 6px !important;
+}
+
+.nav-link {
+    font-size: 1rem !important;
+    margin: auto !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-attachment: local;
+    }
+}

@@ -1,0 +1,134 @@
+<%-include("../partials/header")%>
+    <style type="text/css">
+        .ui .label {
+            z-index: 1000;
+        }
+        
+        body {
+            background-attachment: fixed;
+        }
+        
+        body,
+        html {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            display: relative;
+        }
+        
+        #delete {
+            display: inline;
+        }
+        
+        .btn:focus {
+            box-shadow: none !important;
+        }
+        
+        .blog-image {
+            max-width: 600px;
+            width: 90%;
+            max-height: 500px;
+            height: 90%;
+        }
+        
+        .navbar {
+            padding: 6px !important;
+        }
+        
+        .nav-link {
+            font-size: 1.2rem !important;
+            margin: auto !important;
+        }
+        
+        .navbar-brand {
+            font-size: 1.7rem !important;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <%-include("../partials/navBlog")%>
+            <div class="container blogwindow" style="display:none;">
+                <div class="ui segment raised placeholder  main text mb-5 bord raised link card mt-5" style="width:100% !important">
+
+                    <div class="ui top attached huge header center aligned block">
+                        <%=blog.title%>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui label  ribbon ribo mb-3" style="font-size: 20px;">
+                            <%=blog.hotelName%>
+                        </div>
+                        <div class="ui label teal mb-3 float-right">
+                            <i class="fas fa-map-marker-alt mr-1"> </i><%=blog.location%>
+                        </div>
+                        <div class="item">
+                            <img src="<%=blog.image%>" class="ui image centered rounded blog-image">
+                            <div class="sub header" style="text-decoration: underline;display:inline">
+                                <span><%=blog.created.toDateString()%></span>
+                            </div>
+                            <div class="description" id="blogdata">
+                                <p>
+                                    <%-blog.body%>
+                                </p>
+                            </div>
+                            <%if(currentUser._id.equals(blog.author.id)){%>
+                                <a href="/blogs/<%=blog._id%>/edit" class="btn btn-outline-danger btn-lg mt-3">Edit</a>
+                                <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST" id="delete">
+                                    <button class="btn btn-outline-primary btn-lg mx-1 mt-3">Delete</button>
+                                </form>
+                                <%}%>
+                                    <div class="float-right my-3" style="display:inline">
+                                        Posted By
+                                        <div class="ui teal label my-auto py-2" style="font-size: 1rem;">
+                                            <%=blog.author.username%>
+                                        </div>
+                                    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%-include("../partials/footer")%>
+                <script>
+                    $(window).ready(function() {
+                        var randomm = Math.floor(Math.random() * 10);
+                        var transit = ['zoom', 'fly right', 'fly down', 'fly left', 'drop', 'zoom in', 'fade up', 'fade down', 'fade left', 'fade right'];
+                        $(".blogwindow").transition(transit[randomm], 1000);
+                    });
+                    var gradients = [{
+                            backgroundImage: "linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(to top, #96fbc4 0%, #f9f586 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(180deg, #2af598 0%, #009efd 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(to top, #88d3ce 0%, #6e45e2 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(to right, #d7d2cc 0%, #304352 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%)"
+                        }, {
+                            backgroundImage: "linear-gradient( 109.6deg,  rgba(247,202,201,1) 20.6%, rgba(146,168,209,1) 85.9% )"
+                        }
+
+                    ];
+
+                    var ribbons = ["green", "blue", "green", "green", "violet", "blue", "red", "grey", "teal", "pink"];
+                    $(window).ready(function() {
+                        var random = Math.floor(Math.random() * 10);
+                        $("body").css(gradients[random]);
+                        $(".ribbon").addClass(ribbons[random]);
+                    })
+                </script>
+    </body>
+
+    </html>

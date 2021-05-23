@@ -1,0 +1,58 @@
+<%-include("partials/header")%>
+    <link rel="stylesheet" href="/login.css">
+    </head>
+
+    <body>
+        <video autoplay muted loop id="myVideo">
+            <source src="https://media.istockphoto.com/videos/the-couple-with-camping-backpacks-walking-to-the-mountain-top-slow-video-id1151597371" type="video/mp4">
+        </video>
+        <audio autoplay loop>
+            <source src="../public/media/audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <iframe src="../public/media/audio.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+        </iframe>
+        <div class="container">
+            <form class="ui segment form" action="/login" method="POST" id="register">
+                <div class="ui header">Login</div>
+                <div class="field">
+                    <label>Username</label>
+                    <div class="ui left icon input ">
+                        <input type="text" name="username" required>
+                        <i class="user icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Passowrd</label>
+                    <div class="ui left icon input">
+                        <input type="password" name="password" required>
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+                
+                <div class="float-right mb-2">
+                    <a href="/signup">Dont have an account? Signup</a>
+                </div>
+
+                <button class="ui button blue" type="submit" style="width:100%">Login</button>
+            </form>
+            <%if(error&&error.length>0){ %>
+                <div class="ui warning message" id="error">
+                    <i class="close icon"></i>
+                    <div class="text">
+                        <%=error %>
+                    </div>
+                </div>
+                <% } %>
+                    <%if(success&&success.length>0){%>
+                        <div class="message alert alert-success" id="success">
+                            <%=success%>
+                                <i class="close icon mr-auto"></i>
+                        </div>
+                        <%}%>
+        </div>
+
+        <%-include("partials/footer")%>
+    </body>
+
+    </html>

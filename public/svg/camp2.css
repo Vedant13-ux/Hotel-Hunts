@@ -1,0 +1,141 @@
+.camp2cont svg {
+    position: relative;
+    max-width: 600px !important;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%) translateY(45%);
+    height: 60%;
+    margin-bottom: 20px;
+}
+
+.camp2cont {
+    max-width: 900px;
+    width: 80%;
+    margin: 0px auto;
+    max-height: 600px;
+    height: 90%;
+}
+
+#stars {
+    animation: shine 0.3s alternate infinite ease;
+    transform-origin: center center;
+    transform-box: fill-box;
+}
+
+@keyframes shine {
+    from {
+        opacity: 0.6;
+    }
+    to {
+        opacity: 1;
+        box-shadow: 9px 2px 4px white !important;
+    }
+}
+
+#tree-1,
+#tree-6 {
+    animation: tree-move 1s alternate infinite linear;
+    transform-origin: center 100%;
+    transform-box: fill-box;
+}
+
+@keyframes tree-move {
+    from {
+        transform: skewX(-3deg);
+    }
+    to {
+        transform: skewX(3deg);
+    }
+}
+
+#tree-3,
+#tree-5 {
+    animation: tree-move2 1s alternate-reverse infinite linear;
+    transform-origin: center 100%;
+    transform-box: fill-box;
+}
+
+@keyframes tree-move2 {
+    from {
+        transform: skewX(3deg);
+    }
+    to {
+        transform: skewX(-3deg);
+    }
+}
+
+#tiny-leaf-pair-one {
+    animation: leaf-move1 1s alternate infinite linear;
+    transform-origin: center 100%;
+    transform-box: fill-box;
+}
+
+@keyframes leaf-move1 {
+    from {
+        transform: skewX(-3deg);
+    }
+    to {
+        transform: skewX(3deg);
+    }
+}
+
+#fire-smoke {
+    animation: smoke-animation 1s infinite linear;
+    transform-origin: center center;
+    transform-box: content-box;
+}
+
+@keyframes smoke-animation {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-10%);
+    }
+}
+
+#three-7 {
+    animation: tree-move3 1s alternate infinite linear;
+    transform-origin: center 100%;
+    transform-box: fill-box;
+}
+
+@keyframes tree-move3 {
+    from {
+        transform: skewX(3deg);
+    }
+    to {
+        transform: skewX(-3deg);
+    }
+}
+
+#tiny-leaf-pair-one,
+#tiny-leaf-pair-three {
+    animation: tiny-leaf-move-1 1s alternate infinite linear;
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+@keyframes tiny-leaf-move-1 {
+    from {
+        transform: skewX(-10deg);
+    }
+    to {
+        transform: skewX(10deg);
+    }
+}
+
+#tiny-leaf-pair-two {
+    animation: tiny-leaf-move-1 1s alternate-reverse infinite linear;
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+@keyframes tiny-leaf-move-1 {
+    from {
+        transform: skewX(10deg);
+    }
+    to {
+        transform: skewX(-10deg);
+    }
+}

@@ -1,0 +1,20 @@
+.item {
+    font-size: 1.3rem;
+}
+
+.menu {
+    border-radius: 0 !important;
+}
+
+.navbar {
+    padding: 6px !important;
+}
+
+.nav-link {
+    font-size: 1.2rem !important;
+    margin: auto !important;
+}
+
+.navbar-brand {
+    font-size: 1.7rem !important;
+}

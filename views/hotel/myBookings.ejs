@@ -1,0 +1,90 @@
+<%-include('../partials/header')%>
+    <link rel="stylesheet" href="/hotel/myBookings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/item.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/label.min.css">
+    <style>
+      
+        @media screen and  (max-width: 1000px) {
+           .img-thumbnail{
+               margin-bottom: 10px;
+           }
+        }
+    </style>
+    </head>
+    <body>
+        <%-include("../partials/nav") %>
+        <div class="container">
+            <div class="ui items">
+                <%user.bookings.forEach(function(booking){%>
+                    <div class="ui p-2 segment raised mb-3 mt-3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ">
+                        <div class="ui item">
+                            <div class="row">
+                                <div class="col-lg-3 mt-1 col-12 my-auto">
+                                    <img class="img-thumbnail" src="<%=booking.hotel.image%>">
+                                </div>
+                                <div class="col-lg-9 col-12">
+                                    <div class="content" style="margin-bottom: 10px;">
+                                        <div>
+                                            <b><%=booking.hotel.name%>, <%=booking.hotel.location %></b> 
+                                            <span style="float: right; color: white;" class="ui red horizontal label"><a style="color: white !important;" href="/booking/delete/<%=booking._id%>">Cancel Booking</a></span>
+                                            <%if(booking.confirmed){%>
+                                                <span style="float: right;" class="ui green  horizontal label">Confirmed</span>
+                                            <%}else{ %>
+                                                <span style="float: right;" class="ui red horizontal label">Not Confirmed</span>
+                                                
+                                            <%} %>   
+                                        </div>
+                                        <div class="meta mt-2 mb-3" style="line-height: 25px;">
+                                            <div><i class="fas fa-calendar-alt mr-1"></i> Arrival on <b><%=booking.arrive.toDateString()%></b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                            <i class= "fas fa-calendar-alt mr-1"></i>Departure on <b><%=booking.depart.toDateString()%></b></div>
+                                        </div>
+                                        <div>
+                                            Booked Under the Name of <B><%=booking.name %></B> (<%=booking.phoneNumber %> ), <%=booking.city %>, <%=booking.country %>  
+                                        </div>
+                                        <br>
+                                        <div>
+                                            <div class="ui two column grid stackable">
+                                                <div class="column">
+                                                    <B>Room Details:</B>
+                                                    <div>Number of People Staying in the Room = <b><%=booking.numberOfPeople%> </b></div>
+                                                    <div>Room Type = <b><%=booking.roomType%></b></div>
+                                                    <div>Bedding Type = <b><%=booking.beddingType%></b></div>
+                                                </div>
+                                                <div class="column">
+                                                    <B>Payment Details:</B>
+                                                    <div>Booking Id = <b><%=booking._id%></b></div>
+                                                    <div>Payment Id = <b><%=booking.paymentDetails.razorpay_payment_id%> </b></div>
+                                                    <div>Order Id = <b><%=booking.paymentDetails.razorpay_order_id%></b></div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                <%});%>
+            </div>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <%-include("../partials/footer")%>
+    </body>
+</html>

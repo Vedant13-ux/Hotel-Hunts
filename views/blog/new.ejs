@@ -1,0 +1,76 @@
+<%-include("../partials/header")%>
+    <link rel="stylesheet" type="text/css" href="/blog/newBlog.css">
+    </head>
+
+    <body>
+
+
+        <%-include("../partials/navBlog")%>
+            <div class="ui container main text segment mb-3" id='createform' style="display: none;">
+                <div class="ui huge header center aligned text-dark">
+                    Create Blog
+                </div>
+                <form action="/blogs" method="POST" class="ui form mb-3">
+                    <div class="field">
+                        <label>Title</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[title]" required>
+                            <i class="pen square icon p-0"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Hotel Name</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[hotelName]" required>
+                            <i class="pen square icon p-0"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Location of Hotel</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[location]" required>
+                            <i class="pen square icon p-0"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        
+                    </div>
+                    <div class="field">
+                        <label>Image(URL)</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="blog[image]" required>
+                            <i class="file image icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label style="color:white">Blog Content</label>
+                        <textarea rows="10" name="blog[body]"></textarea>
+
+                        <button type="submit" class="ui blue submit button large my-2">Create Blog</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+
+            <%-include("../partials/footer")%>
+                <script>
+                    window.onbeforeunload = function(ev) {
+                        return false;
+                    }
+                </script>
+
+                <script src="/blog/ckeditor/ckeditor/ckeditor.js"></script>
+                <script>
+                    CKEDITOR.replace('blog[body]');
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        $("#createform").transition('fade down', 1000);
+                    });
+                </script>
+
+    </body>
+
+    </html>

@@ -1,0 +1,132 @@
+.navbar-brand {
+    font-size: 1.4rem;
+}
+
+body,
+html {
+    background-size: cover;
+    background-attachment: fixed !important;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.ui .image {
+    max-height: 400px;
+    height: 90%;
+    max-width: 700px;
+    width: 95%;
+    border-radius: 20px !important;
+}
+
+#delete {
+    display: inline;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.delete_cmnt,
+.delete_cmnt:focus {
+    background: none;
+    border: 0;
+    outline: 0;
+}
+
+.delete_cmnt {
+    opacity: 0.5;
+    padding: 0;
+}
+
+.delete_cmnt:hover,
+.delete_cmnt:focus {
+    opacity: 1;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    word-break: keep-all;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7) !important;
+    top: 10px;
+    right: 14px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    right: 10%;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    display: inline !important;
+}
+
+.related-blogs-img {
+    width: 100% !important;
+    height: 20% !important;
+}
+
+.title {
+    font-size: 1.3rem;
+}
+
+.rel-blog {
+    font-size: 1rem !important;
+}
+
+.rel-label {
+    font-size: 0.6rem !important;
+}
+
+.navbar {
+    padding: 6px !important;
+}
+
+.nav-link {
+    font-size: 1.2rem !important;
+    margin: auto !important;
+}
+
+.navbar-brand {
+    font-size: 1.7rem !important;
+}

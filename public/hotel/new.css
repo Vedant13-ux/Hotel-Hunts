@@ -1,0 +1,40 @@
+input,
+textarea {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+form {
+    z-index: 100;
+    padding: 30px 30px;
+}
+
+body {
+    background: url('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2020%2F04%2F30%2Fcaesar-augustus-lead-ITRESORTSWB20.jpg&q=85') no-repeat center center / cover;
+    overflow: auto;
+    padding: auto auto;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    background-attachment: fixed;
+}
+
+textarea {
+    overflow: auto;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.navbar {
+    padding: 6px !important;
+}
+
+.nav-link {
+    font-size: 1.2rem !important;
+    margin: auto !important;
+}
+
+.navbar-brand {
+    font-size: 1.7rem !important;
+}

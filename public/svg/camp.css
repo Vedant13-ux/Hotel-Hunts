@@ -1,0 +1,113 @@
+.campcontainer svg {
+    position: relative;
+    text-align: center !important;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    top: 0;
+    max-height: 500px;
+    height: 80%;
+}
+
+.campcontainer {
+    text-align: center !important;
+    max-width: 800px;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+#fire {
+    animation: firemove 0.8s infinite alternate linear;
+    transform-origin: 20% 50%;
+    transform-box: fill-box;
+    background-size: 300% !important;
+    fill: linear-gradient(180deg, rgb(255, 128, 0), rgb(255, 51, 51), rgb(255, 191, 0), rgb(255, 102, 51)) !important;
+}
+
+@keyframes firemove {
+    25% {
+        transform: rotateZ(-2deg) scale(1, 1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: rotateZ(-1deg) scale(1.1, 1);
+        opacity: 0.89;
+    }
+    75% {
+        transform: rotateZ(1deg) scale(1.08, 0.98);
+        opacity: 0.95;
+    }
+    100% {
+        transform: rotateZ(2deg) scale(1.15, 1);
+        opacity: 1;
+    }
+}
+
+#fire-inner {
+    animation: firemove 0.5s infinite alternate ease-in-out;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#hand-girl {
+    animation: handmove 0.8s infinite alternate ease-in-out;
+    transform-origin: top left;
+    transform-box: fill-box;
+}
+
+@keyframes handmove {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(7deg);
+    }
+}
+
+#leave-left {
+    animation: leave-left-move 1s infinite alternate ease;
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+@keyframes leave-left-move {
+    from {
+        transform: rotateZ(-3deg) skew(-2deg);
+    }
+    to {
+        transform: rotateZ(3deg) skew(-2deg);
+    }
+}
+
+#leave-left-most {
+    animation: leave-left-most-move 1s ease-in-out alternate infinite;
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+@keyframes leave-left-most-move {
+    from {
+        transform: rotateZ(3deg) skew(-2deg);
+    }
+    to {
+        transform: rotateZ(-3deg) skew(-2deg);
+    }
+}
+
+#leaves {
+    animation: leaves-right-pair 1s ease-in-out alternate infinite;
+    transform-origin: center bottom;
+    transform-box: fill-box;
+}
+
+@keyframes leaves-right-pair {
+    from {
+        transform: rotateZ(1deg) skewX(-10deg);
+    }
+    to {
+        transform: rotateZ(-3deg) skewX(8deg);
+        box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.5);
+    }
+}

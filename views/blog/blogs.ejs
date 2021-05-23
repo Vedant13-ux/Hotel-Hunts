@@ -1,0 +1,64 @@
+<%-include("../partials/header")%>
+    <link rel="stylesheet" href="/svg/camp.css" type="text/css">
+    <link rel=" stylesheet " href="/blog/blogs.css" type="text/css ">
+    </head>
+
+    <body>
+        <div class="conatiner">
+            <%-include("../partials/navBlog")%>
+                <div class="display-2 text-center">HotelHunts Blogs</div>
+                <%-include("../partials/camp")%>
+        </div>
+
+
+        <div class="ui container main text ">
+            <div class="ui divided items" >
+                <%blogs.forEach(function(blog){%>
+                    <div class="ui p-2 segment raised mb-3 mt-3" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ">
+                        <div class="ui item ">
+                            <div class="ui two column grid stackable p-0">
+                                <div class="column mt-1">
+                                    <img class="img-thumbnail ui image  item-image img-fluid" src="<%=blog.image%>">
+                                </div>
+                                <div class="column my-auto">
+                                    <div class=" content">
+                                        <div class="meta mt-2 mb-3">
+                                            <small>Created on <%=blog.created.toDateString()%></small>
+                                        </div>
+                                        <div>
+                                            <h3 class="mb-2">
+                                                <a href="blogs/<%=blog._id%>">
+                                                    <%=blog.title%>
+                                                </a>
+                                            </h3>
+                                        </div>
+                                        <div class="description" style="font-size: 1.15rem">
+                                            <p class="d-inline my-2">
+                                                <%-blog.body.substring(0,100)%>....<a href="blogs/<%=blog._id%>">Read More</a>
+                                            </p>
+                                        </div>
+                                        <div style='font-weight: 200;font-size:1.15rem'>
+                                            <p class="ui mt-2">-By
+                                                <%=blog.author.username%>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <%});%>
+
+
+            </div>
+        </div>
+
+
+
+
+        <%-include("../partials/footer")%>
+
+    </body>
+
+    </html>

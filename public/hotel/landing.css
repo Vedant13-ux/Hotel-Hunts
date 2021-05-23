@@ -1,0 +1,375 @@
+/* @import url('<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(0deg, black, transparent);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Section 1 */
+
+#mycontainer {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.carousel {
+    z-index: 10;
+    height: 100vh !important;
+    width: 100vw !important;
+    display: block;
+    position: relative;
+    background-attachment: fixed;
+    margin: 0;
+    box-sizing: border-box;
+    padding-bottom: 0;
+    transform: translateX(0%);
+}
+
+.carousel-inner {
+    box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height: 100vh !important;
+    max-width: 100vw !important;
+    display: block;
+    background-attachment: fixed;
+    padding-bottom: 0;
+}
+
+.carousel-item img {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    background-attachment: fixed !important;
+    margin: 0;
+    box-sizing: border-box;
+    padding-bottom: 0;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    padding-bottom: 0;
+}
+
+.carousel-conatiner {
+    position: absolute;
+    width: 100%;
+    display: block;
+    z-index: 11;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+    margin: 2.5% auto;
+    height: 34%;
+    font-family: 'Sriracha', cursive;
+}
+
+@media screen and (max-width: 1050px) {
+    .carousel-conatiner .display-2 {
+        font-size: 4.5rem;
+        margin: 2.8% auto;
+    }
+}
+
+@media screen and (max-width: 806px) {
+    .carousel-conatiner .display-2 {
+        font-size: 4rem;
+        margin: 3.1% auto;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .carousel-conatiner .display-2 {
+        font-size: 3.6rem;
+        margin: 3.1% auto;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .carousel-conatiner .display-2 {
+        font-size: 3rem;
+        margin: 4% auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel-conatiner .display-2 {
+        font-size: 3rem;
+    }
+}
+
+
+/* Section 2 */
+
+.parallax1 {
+    background: transparent;
+    min-height: 115vh;
+    width: 100vw;
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    perspective: 100px;
+}
+
+#card-section {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content {
+    height: 10% !important;
+}
+
+#first,
+#third {
+    margin-top: 30vh;
+    /* max-height: 400px !important;
+    height: 90%; */
+}
+
+#second {
+    margin-top: 26vh;
+}
+
+#first {
+    transform: translateX(-100px);
+    transition: all 1s ease;
+    opacity: 0;
+}
+
+#second {
+    transform: translateY(-100px);
+    transition: all 1s ease;
+    opacity: 0;
+}
+
+#third {
+    transform: translateX(100px);
+    transition: all 1s ease;
+    opacity: 0;
+}
+
+#first.appear {
+    transform: translateX(0px) !important;
+    opacity: 1 !important;
+}
+
+#second.appear {
+    transform: translateX(0px) !important;
+    opacity: 1 !important;
+}
+
+#third.appear {
+    transform: translateY(0px) !important;
+    opacity: 1 !important;
+}
+
+.card-description {
+    max-width: 900px;
+    width: 89%;
+    display: block;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    font-style: italic;
+    margin-top: 3%;
+}
+
+@media screen and (max-width: 967px) {
+    .display-4 {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .display-4 {
+        font-size: 2.2rem !important;
+    }
+}
+
+.line {
+    border-top: 3px solid white;
+    transition: all 3s ease-out;
+    width: 100%;
+}
+
+
+/* Section 3 */
+
+.parallax2 {
+    background: transparent;
+    min-height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    padding: 0;
+    margin: 0px auto;
+}
+
+
+/* =========================== */
+
+.blogs-header {
+    z-index: 100;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 5rem;
+    font-family: 'Belleza', sans-serif;
+}
+
+.txt-type {
+    color: rgba(255, 255, 255, 0.79);
+    margin: 0 6%;
+    font-weight: 300;
+    font-size: 1.65rem;
+    font-family: 'Belleza', sans-serif;
+}
+
+.txt-cont {
+    width: 57%;
+    flex-wrap: wrap;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 0 4%;
+}
+
+.txt-type {
+    margin: 0;
+    border-right: 1.5px solid rgba(255, 255, 255, 0.75);
+    animation: typewriter 0.24s alternate infinite linear;
+}
+
+@keyframes typewriter {
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+@media screen and (max-width: 1343px) {
+    .blogs-header {
+        font-size: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .blogs-header {
+        font-size: 4.1rem;
+    }
+    .txt-type {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .blogs-header {
+        font-size: 3.5rem;
+    }
+    .txt-type {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 747px) {
+    .blogs-header {
+        font-size: 3rem;
+    }
+    .txt-type {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .blogs-header {
+        font-size: 2.5rem;
+    }
+    .txt-type {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .blogs-header {
+        font-size: 2.1rem;
+    }
+    .txt-type {
+        font-size: 1rem;
+    }
+}
+
+
+/* ====================== */
+
+
+/* Section 4 */
+
+.parallax3 {
+    background: transparent;
+    min-height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+#getstarted {
+    position: relative;
+    max-width: 200px;
+    height: 60px;
+    padding: 21px;
+    font-size: 20px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    border-radius: 30px;
+    background-size: 400%;
+    margin: auto;
+    margin-top: 16% !important;
+    z-index: 0;
+}
+
+#getstarted:hover {
+    color: white;
+    animation: glow 6s linear infnite;
+}
+
+@keyframes glow {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 400%;
+    }
+}

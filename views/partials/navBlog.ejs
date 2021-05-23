@@ -1,0 +1,57 @@
+<nav class="navbar-dark navbar-expand-lg bg-dark navbar p-2" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="/hotels"><i class='fas fa-campground mr-1'></i>HotelHunts</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria- controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  		</button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto nav-pills">
+                <li class="nav-item ml-3"><a href="/blogs" class="nav-link"><i class="fas fa-home mr-1"></i>Home</a></li>
+                <li class="nav-item ml-3"><a href="/blogs/new" class="nav-link"><i class="fas fa-pen-square mr-1"></i>Create Blog</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-pills">
+                <%if(currentUser){ %>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a></li>
+                    <li class="nav-item ml-3"><a class="nav-link" href="/tovisit"><i class="far fa-list-alt mr-1"></i>To-Visit</a></li>
+                    <li class="nav-item ml-3">
+                        <a class="ui label teal nav-link mt-1 px-3" style="font-size: 1rem;font-weight: 500;padding:3px">
+                            <%if(currentUser.gender=="male"){%>
+                                <span class="ui avatar image">
+                                    <img src="/media/male-avatar-profile-icon-round-african-american-vector-18307210.jpg">
+                                </span>
+                                <%}else{ %>
+                                    <span class="ui avatar image">
+                                        <img src="/media/female-avatar-profile-icon-round-african-american-vector-18307279.jpg">
+                                    </span>
+                                    <%}%>
+                                        <%=currentUser.username%>
+                        </a>
+                    </li>
+
+                    <% }else{%>
+                        <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt mr-1"></i>Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus mr-1"></i>Signup</a></li>
+
+
+                        <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mt-5">
+    <%if(error&&error.length>0){ %>
+        <div class="ui warning message" id="error">
+            <i class="close icon" style="cursor:pointer"></i>
+            <div class="text">
+                <%=error %>
+            </div>
+        </div>
+        <% } %>
+            <%if(success&&success.length>0){%>
+                <div class="message alert alert-success" id="success">
+                    <%=success%>
+                        <i class="close icon mr-auto" style="cursor:pointer"></i>
+                </div>
+                <%}%>
+
+</div>

@@ -1,0 +1,72 @@
+/*#login .ui .segment .modal{
+	height:400px !important;
+
+}
+*/
+
+body {
+    background: url('/media/cream.jpg') no-repeat center center / cover;
+    background-attachment: fixed;
+}
+
+@media screen and (max-width: 700px) {
+    div .display-2 {
+        font-size: 3.5rem !important;
+    }
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#loginmodal {
+    margin: 100px 300px !important;
+}
+
+@media screen and (max-width: 700px) {
+    .menu {
+        font-weight: 1rem !important;
+    }
+}
+
+.item-image {
+    max-height: 230px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.description {
+    word-wrap: break-word;
+    white-space: normal;
+    display: inline;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    /* background: linear-gradient(180deg, yellowgreen, #59e5bc); */
+    background: rgba(0, 0, 0, 0.8);
+}
+
+::-webkit-scrollbar-track {
+    background: #e5cb90;
+}
+
+.navbar {
+    padding: 6px !important;
+}
+
+.nav-link {
+    font-size: 1.2rem !important;
+    margin: auto !important;
+}
+
+.navbar-brand {
+    font-size: 1.7rem !important;
+}

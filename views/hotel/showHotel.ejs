@@ -1,0 +1,264 @@
+<%-include('../partials/header')%>
+    <link rel="stylesheet" href="/hotel/show.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    </head>
+
+    <body style="background:url('<%=hotel.image%>') no-repeat center center / cover ;">
+        <%-include("../partials/nav") %>
+
+            <div id="main">
+                <button class="openbtn ui button teal" onclick="openNav()">☰ Related Blogs</button>
+            </div>
+            <div class="container" style="margin-bottom: 100px !important; display: block;">
+                <div class="ui segment raised placeholder main text mb-5 bord raised link card mt-5" style="width:100% !important; ">
+
+                    <div class="ui top attached huge header block">
+                        <%=hotel.name%>
+                        <div style="float: right;">
+                            <div  class="ui star rating" data-rating="<%=Math.floor(hotel.rating)%>" data-max-rating="5"> </div>
+                            <%=hotel.rating %>
+                        </div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui label teal ribbon ribo mb-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i><%=hotel.location %>
+                        </div>
+                        <div class="item">
+                            <img src="<%=hotel.image%>" class="ui image centered rounded img-main">
+                            <div class="sub header left aligned" style="text-decoration: underline">
+                                <span></span>
+                            </div>
+
+                            <div class="description" style="overflow: hidden">
+                                <strong><i class="fas fa-hotel mr-2"></i> Hotel Description</strong>
+                                <p class="text">
+                                    <%=hotel.description%>
+                                </p>
+                            </div>
+                            <div class="amenities" style="margin-top:13px ;">
+                                <strong><i class="fas fa-concierge-bell mr-2"></i></i> Amenities</strong>
+                                <div class="row" style="margin: 0 auto;margin-top: 10px; max-width: 900px;width: 90%;">
+                                    <%hotel.amenities.forEach(am=>{%>
+                                        <%if(am=="AC"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-snowflake mr-1"></i> AC</span>
+                                        <%} %>  
+                                        <%if(am=="TV"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-tv mr-1"></i> TV</span>
+                                        <%} %>  
+                                        <%if(am=="FreeWifi"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-wifi mr-1"></i> Free Wifi</span>
+                                        <%} %>  
+                                        <%if(am=="PowerBackup"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-car-battery mr-1"></i></i> Power Backup</span>
+                                        <%} %>  
+                                        <%if(am=="Geyser"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-shower mr-1"></i> Geyser</span>
+                                        <%} %>  
+                                        <%if(am=="Elevator"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px" style="display: inline-flex;align-items: center;">
+                                                <span class="material-icons" style="vertical-align: middle;">
+                                                    elevator
+                                                </span>
+                                                Elevator
+                                            </span>
+                                        <%} %>  
+                                        <%if(am=="ParkingFacility"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px">
+                                                <span style="vertical-align: middle;" class="material-icons">
+                                                    local_parking
+                                                </span>Parking Facility</span>
+                                        <%} %>  
+                                        <%if(am=="Restaurant"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-utensils mr-1"></i> Restaurant</span>
+                                        <%} %>  
+                                        <%if(am=="SwimmingPool"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-swimming-pool mr-1"></i> Swimming Pool</span>
+                                        <%} %>  
+                                        <%if(am=="Spa"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px">
+                                                <span style="vertical-align: middle;" class="material-icons">
+                                                    hot_tub
+                                                </span> Spa</span>
+                                        <%} %>  
+                                        <%if(am=="Jacuzzi"){ %>
+                                            <span class="col-lg-3 col-md-4 col-6" style="font-size:20px;line-height:30px"><i class="fas fa-hot-tub mr-2"></i>Jacuzzi</span>
+                                        <%} %> 
+    
+                                    <%}) %> 
+                                </div>
+                            </div>
+                            <div class="availibity" style="margin-top: 10px;">
+                                
+                                <b>
+                                    <span class="material-icons" style="vertical-align: middle;">
+                                        meeting_room
+                                    </span>
+                                    Availibity of Rooms
+                                </b>
+                                <div class="row" style="margin: 0 auto;margin-top: 10px; max-width: 900px;width: 90%;">
+                                    <div class="singlebed col-6">
+                                        <span class="material-icons" style="vertical-align: middle;">
+                                            single_bed
+                                        </span>
+                                        <b>Single Bed</b>
+                                        <div>
+                                            With Bathroom (<%=hotel.allRooms.singleBed.withBathroom.available%>) - <b>Rs.<%=hotel.allRooms.singleBed.withBathroom.price %> </b>
+                                        </div>
+                                        <div>
+                                            Without Bathroom (<%=hotel.allRooms.singleBed.withoutBathroom.available%>) - <b>Rs.<%=hotel.allRooms.singleBed.withoutBathroom.price %> </b>
+                                        </div>
+                                    </div>
+                                    <div class="singlebed col-6">
+                                        <span class="material-icons" style="vertical-align: middle;">
+                                            bed
+                                        </span>
+                                        <b>Double Bed</b>
+                                        <div>
+                                            With Bathroom (<%=hotel.allRooms.doubleBed.withBathroom.available%>) - <b>Rs.<%=hotel.allRooms.doubleBed.withBathroom.price %> </b>
+                                        </div>
+                                        <div>
+                                            Without Bathroom (<%=hotel.allRooms.doubleBed.withoutBathroom.available%>) - <b>Rs.<%=hotel.allRooms.doubleBed.withoutBathroom.price %> </b>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="footer">
+                                <button class="btn btn-outline-success btn-lg mx-1 mt-3" id="comment">Reviews</button>
+                                <%if(hotel.author.equals(currentUser._id)){ %>
+
+                                    <a href="/hotels/<%=hotel._id%>/edit" class="btn btn-outline-primary btn-lg mt-3">Edit</a>
+                                   
+                                <% } %>
+                                <%if(currentUser.role=="customer"){ %> 
+                                    <a class="btn btn-outline-info btn-lg mx-1 mt-3" href="/booking/<%=hotel._id%>">Book</a>
+
+                                <%} %> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comment Section -->
+                    <div class="ui bottom attached segment" id="cmntsec" style="display:none">
+                        <h3 class="ui dividing header">Reviews</h3>
+                        <form action="/hotels/<%=hotel._id%>" method="POST" class="form-inline my-3">
+                            <div class="ui input icon left m-0" style="width:55%">
+                                <input type="text" name="comment[text]" required placeholder="Type Your Comment...">
+                            </div>
+                            <div class="ui input" style="width:10%; margin-left: 5px;">
+                                <input type="text" name="comment[rating]" required placeholder="Rating">
+                            </div>
+                            <button class="ui button teal ml-2">Post</button>
+                        </form>
+                        <div class="ui comments">
+                            <%hotel.comments.forEach(function(comment){%>
+                                <div class="comment">
+                                    <%if(comment.author.gender=="male"){%>
+                                        <a class="avatar">
+                                            <img src="/media/male-avatar-profile-icon-round-african-american-vector-18307210.jpg">
+                                        </a>
+                                    <%}else{ %>
+                                            <a class="avatar">
+                                                <img src="/media/female-avatar-profile-icon-round-african-american-vector-18307279.jpg">
+                                            </a>
+                                    <%}%>
+
+                                    <div class="content">
+                                        <a class="author">
+                                            <%=comment.author.username%>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date"><%=comment.created.toDateString()%></span>
+                                        </div>
+                                            <div class="ui star rating" data-rating="<%=Math.floor(comment.rating)%>" data-max-rating="5"> </div><%=comment.rating %>
+                                        
+                                        <div class="text">
+                                            
+                                            <%=comment.text %>
+                                        </div>
+                                        <div>
+
+                                        </div>
+                                        
+                                        <!-- Actions -->
+                                        <%if(comment.author._id.equals(currentUser._id)){ %>
+                                            <div class="actions">
+                                                <a class="reply edit-cmnt">Edit</a>
+                                                <form action="/hotels/<%=hotel._id%>/<%=comment._id%>?_method=DELETE" method="POST" style="display: inline !important">
+                                                    <button class="reply delete_cmnt ml-0">Delete</button>
+                                                </form>
+
+                                                <!-- Edit Comment form -->
+                                                <form action="/hotels/<%=hotel._id%>/<%=comment._id%>?_method=PUT" method="POST" style="display:none" class="form-inline my-3 edit-form">
+                                                    <div class="ui input m-0" style="width:55%">
+                                                        <input type="text" name="comment[text]" value="<%=comment.text%>">
+                                                    </div>
+                                                    <div class="ui input" style="width:10%; margin-left: 3px;">
+                                                        <input type="text" name="comment[rating]" value="<%=comment.rating%>"> 
+                                                    </div>
+                                                    <button class="ui button small  teal ml-2">Post</button>
+                                                </form>
+
+                                            </div>
+                                        <%} %>
+
+                                    </div>
+                                </div>
+                                <% }); %>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <%if(blogs){ %>
+
+                    <%blogs.forEach(function(blog){%>
+                        <a href="/blogs/<%=blog._id%>">
+                            <div class="ui link raised card">
+                                <div class="ui image related-blogs-img">
+                                    <img src="<%=blog.image%>" alt="">
+                                </div>
+                                <div class="content p-2">
+                                    <div class="title">
+                                        <%=blog.title%>
+                                    </div>
+                                    <div class="description rel-blog">
+                                        <%-blog.body.substring(0,70)%>...<span class="text-primary">Read More<span>
+                                    </div>
+                                    <div class="ui label teal float-right rel-label"><%=blog.author.username%></div>
+                                </div>
+                            </div>
+                        </a>
+                        <% }); %>
+
+                            <%}%>
+            </div>
+            <%-include("../partials/footer")%>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/rating.min.js"></script>    
+            
+                <script>
+                $('.ui.rating').rating('disable');
+                    //Sidebar
+                    function openNav() {
+                        document.getElementById("mySidebar").style.width = "250px";
+                        document.getElementById("main").style.marginLeft = "250px";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidebar").style.width = "0";
+                        document.getElementById("main").style.marginLeft = "0";
+                    }
+                    $("#comment").on('click',function(ev){
+                        $("#cmntsec").slideToggle();
+                    });
+                    $(".edit-cmnt").click(function(){
+                        $(this).siblings('.edit-form').fadeToggle();
+                    });
+                </script>
+    </body>
+
+    </html>
